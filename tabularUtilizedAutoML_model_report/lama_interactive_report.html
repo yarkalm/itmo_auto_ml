@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <title>LAMA report</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    /* Remove default bullets */
+    ul,
+    #myUL {
+        list-style-type: none;
+    }
+
+    /* Remove margins and padding from the parent ul */
+    #myUL {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the caret/arrow */
+    .caret {
+        cursor: pointer;
+        user-select: none;
+        /* Prevent text selection */
+    }
+
+    /* Create the caret/arrow with a unicode, and style it */
+    .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+    /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+    .caret-down::before {
+        transform: rotate(90deg);
+    }
+
+    /* Hide the nested list */
+    .nested {
+        display: none;
+    }
+
+    /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+    .active {
+        display: block;
+    }
+    
+</style>
+<!--
+<script src="shap.js"></script>
+
+-->
+
+<body>
+    <div>
+        <h1>LAMA report</h1>
+    </div>
+    <ul id="myUL">
+        
+            <p>This report was generated automatically.</p>
+        
+            <li>
+    <h2 class="caret caret-down" id="section1">Model overview</h2>
+    <ul class="nested active">
+        <li>
+            <h3 class="caret" id="section1_1">Summary results</h3>
+            <ul class="nested">
+                
+                    <p>Results for data samples:</p>
+
+                    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Evaluation parameter</th>
+      <th>Validation sample</th>
+      <th>Test sample</th>
+      <th>Test sample 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AUC-score</td>
+      <td>0.9984</td>
+      <td>0.9999</td>
+      <td>0.9990</td>
+    </tr>
+    <tr>
+      <td>Precision</td>
+      <td>0.9862</td>
+      <td>0.9982</td>
+      <td>0.9919</td>
+    </tr>
+    <tr>
+      <td>Recall</td>
+      <td>0.9905</td>
+      <td>0.9978</td>
+      <td>0.9924</td>
+    </tr>
+    <tr>
+      <td>F1-score</td>
+      <td>0.9883</td>
+      <td>0.9980</td>
+      <td>0.9922</td>
+    </tr>
+  </tbody>
+</table>
+                
+            </ul>
+        </li>
+        <li>
+            <h3 class="caret" id="section1_2">Prediction formula</h3>
+            <ul class="nested">
+                
+                   <pre>Final prediction for new objects = 
+	1.00000 * 1 averaged models with config = "conf_0_sel_type_0.yml" and different CV random_states. Their structures: 
+
+	    Model #0.
+		================================================================================
+		Final prediction for new objects (level 0) = 
+			 1.00000 * (1 averaged models Lvl_0_Pipe_1_Mod_0_LightGBM) 
+		================================================================================
+
+
+</pre>
+                
+            </ul>
+        </li>
+        <li>
+            <h3 class="caret" id="section1_3">Model parameters</h3>
+            <ul class="nested">
+                <p>The following model is loaded: <b>TabularUtilizedAutoML</b>.</p>
+
+                
+                    <p>Parameters of applied presets are described below:</p>
+                    
+                        <li>
+    <h4 class="caret" id="section3">Preset 0: No feature selection (conf_0_sel_type_0.yml)</h4>
+    <ul class="nested">
+        <table border="1"><tr><th>config_path</th><td>/home/kalmykov/.local/lib/python3.10/site-packages/lightautoml/automl/presets/tabular_configs/conf_0_sel_type_0.yml</td></tr><tr><th>general_params</th><td><table border="1"><tr><th>use_algos</th><td>[&#x27;lgb&#x27;, &#x27;lgb_tuned&#x27;, &#x27;linear_l2&#x27;, &#x27;cb&#x27;, &#x27;cb_tuned&#x27;]</td></tr><tr><th>nested_cv</th><td>False</td></tr><tr><th>skip_conn</th><td>True</td></tr><tr><th>return_all_predictions</th><td>False</td></tr><tr><th>weighted_blender_max_nonzero_coef</th><td>0.05</td></tr></table></td></tr><tr><th>reader_params</th><td><table border="1"><tr><th>samples</th><td>100000</td></tr><tr><th>max_nan_rate</th><td>0.999</td></tr><tr><th>max_constant_rate</th><td>0.999</td></tr><tr><th>cv</th><td>5</td></tr><tr><th>random_state</th><td>42</td></tr><tr><th>roles_params</th><td>None</td></tr><tr><th>n_jobs</th><td>4</td></tr><tr><th>advanced_roles</th><td>True</td></tr><tr><th>numeric_unique_rate</th><td>0.999</td></tr><tr><th>max_to_3rd_rate</th><td>1.1</td></tr><tr><th>binning_enc_rate</th><td>2</td></tr><tr><th>raw_decr_rate</th><td>1.1</td></tr><tr><th>max_score_rate</th><td>0.2</td></tr><tr><th>abs_score_val</th><td>0.04</td></tr><tr><th>drop_score_co</th><td>0.0</td></tr></table></td></tr><tr><th>read_csv_params</th><td><table border="1"><tr><th>decimal</th><td>.</td></tr><tr><th>sep</th><td>,</td></tr></table></td></tr><tr><th>nested_cv_params</th><td><table border="1"><tr><th>cv</th><td>1</td></tr><tr><th>n_folds</th><td>None</td></tr><tr><th>inner_tune</th><td>False</td></tr><tr><th>refit_tuner</th><td>True</td></tr></table></td></tr><tr><th>selection_params</th><td><table border="1"><tr><th>mode</th><td>0</td></tr><tr><th>importance_type</th><td>gain</td></tr><tr><th>fit_on_holdout</th><td>True</td></tr><tr><th>cutoff</th><td>0</td></tr><tr><th>feature_group_size</th><td>1</td></tr><tr><th>max_features_cnt_in_result</th><td>None</td></tr><tr><th>select_algos</th><td>gbm</td></tr></table></td></tr><tr><th>tuning_params</th><td><table border="1"><tr><th>fit_on_holdout</th><td>True</td></tr><tr><th>max_tuning_iter</th><td>101</td></tr><tr><th>max_tuning_time</th><td>300</td></tr></table></td></tr><tr><th>lgb_params</th><td><table border="1"><tr><th>default_params</th><td><table border="1"><tr><th>num_threads</th><td>4</td></tr></table></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>xgb_params</th><td><table border="1"><tr><th>default_params</th><td><table border="1"><tr><th>nthread</th><td>4</td></tr></table></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>cb_params</th><td><table border="1"><tr><th>default_params</th><td><table border="1"><tr><th>task_type</th><td>CPU</td></tr><tr><th>thread_count</th><td>4</td></tr></table></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>rf_params</th><td><table border="1"><tr><th>default_params</th><td>None</td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>linear_l2_params</th><td><table border="1"><tr><th>default_params</th><td></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>nn_params</th><td><table border="1"><tr><th>model</th><td>denselight</td></tr><tr><th>embedding_size</th><td>10</td></tr><tr><th>cat_embedder</th><td>cat</td></tr><tr><th>cont_embedder</th><td>cont</td></tr><tr><th>model_with_emb</th><td>False</td></tr><tr><th>tuned</th><td>False</td></tr><tr><th>optimization_search_space</th><td>None</td></tr><tr><th>loss</th><td>None</td></tr><tr><th>loss_params</th><td></td></tr><tr><th>loss_on_logits</th><td>True</td></tr><tr><th>clip_grad</th><td>False</td></tr><tr><th>clip_grad_params</th><td></td></tr><tr><th>drop_rate</th><td>0.1</td></tr><tr><th>num_init_features</th><td>None</td></tr><tr><th>act_fun</th><td>LeakyReLU</td></tr><tr><th>use_noise</th><td>False</td></tr><tr><th>noise_std</th><td>0.05</td></tr><tr><th>use_bn</th><td>True</td></tr><tr><th>hidden_size</th><td>512, 256</td></tr><tr><th>hid_factor</th><td>2, 2</td></tr><tr><th>block_config</th><td>2, 2</td></tr><tr><th>compression</th><td>0.5</td></tr><tr><th>growth_size</th><td>256</td></tr><tr><th>bn_factor</th><td>2</td></tr><tr><th>stop_by_metric</th><td>False</td></tr><tr><th>random_state</th><td>42</td></tr><tr><th>path_to_save</th><td>None</td></tr><tr><th>opt</th><td>Adam</td></tr><tr><th>opt_params</th><td><table border="1"><tr><th>lr</th><td>0.0003</td></tr><tr><th>weight_decay</th><td>0</td></tr></table></td></tr><tr><th>sch</th><td>ReduceLROnPlateau</td></tr><tr><th>scheduler_params</th><td><table border="1"><tr><th>patience</th><td>5</td></tr><tr><th>factor</th><td>0.5</td></tr><tr><th>min_lr</th><td>1e-05</td></tr></table></td></tr><tr><th>is_snap</th><td>False</td></tr><tr><th>snap_params</th><td><table border="1"><tr><th>k</th><td>3</td></tr><tr><th>early_stopping</th><td>True</td></tr><tr><th>patience</th><td>10</td></tr><tr><th>swa</th><td>True</td></tr></table></td></tr><tr><th>init_bias</th><td>True</td></tr><tr><th>verbose_inside</th><td>None</td></tr><tr><th>verbose</th><td>1</td></tr><tr><th>verbose_bar</th><td>False</td></tr><tr><th>n_epochs</th><td>50</td></tr><tr><th>input_bn</th><td>False</td></tr><tr><th>emb_dropout</th><td>0.1</td></tr><tr><th>emb_ratio</th><td>3</td></tr><tr><th>max_emb_size</th><td>256</td></tr><tr><th>use_cont</th><td>True</td></tr><tr><th>use_cat</th><td>True</td></tr><tr><th>use_text</th><td>False</td></tr><tr><th>deterministic</th><td>True</td></tr><tr><th>multigpu</th><td>False</td></tr><tr><th>device</th><td>cpu</td></tr><tr><th>dataset</th><td>UniversalDataset</td></tr><tr><th>pin_memory</th><td>False</td></tr><tr><th>bs</th><td>512</td></tr><tr><th>num_workers</th><td>0</td></tr><tr><th>tuning_params</th><td><table border="1"><tr><th>fit_on_holdout</th><td>True</td></tr><tr><th>max_tuning_iter</th><td>25</td></tr><tr><th>max_tuning_time</th><td>3600</td></tr></table></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>gbm_pipeline_params</th><td><table border="1"><tr><th>top_intersections</th><td>4</td></tr><tr><th>max_intersection_depth</th><td>3</td></tr><tr><th>subsample</th><td>100000</td></tr><tr><th>auto_unique_co</th><td>10</td></tr><tr><th>multiclass_te_co</th><td>3</td></tr><tr><th>output_categories</th><td>False</td></tr></table></td></tr><tr><th>linear_pipeline_params</th><td><table border="1"><tr><th>top_intersections</th><td>4</td></tr><tr><th>max_intersection_depth</th><td>3</td></tr><tr><th>subsample</th><td>100000</td></tr><tr><th>auto_unique_co</th><td>50</td></tr><tr><th>multiclass_te_co</th><td>3</td></tr></table></td></tr><tr><th>nn_pipeline_params</th><td><table border="1"><tr><th>use_qnt</th><td>False</td></tr><tr><th>n_quantiles</th><td>None</td></tr><tr><th>subsample</th><td>1000000000</td></tr><tr><th>output_distribution</th><td>normal</td></tr><tr><th>noise</th><td>0.001</td></tr><tr><th>qnt_factor</th><td>30</td></tr><tr><th>use_te</th><td>False</td></tr><tr><th>top_intersections</th><td>5</td></tr><tr><th>max_bin_count</th><td>10</td></tr><tr><th>max_intersection_depth</th><td>3</td></tr><tr><th>te_subsample</th><td>None</td></tr><tr><th>sparse_ohe</th><td>auto</td></tr><tr><th>auto_unique_co</th><td>50</td></tr><tr><th>output_categories</th><td>True</td></tr><tr><th>multiclass_te_co</th><td>3</td></tr></table></td></tr><tr><th>timing_params</th><td><table border="1"><tr><th>mode</th><td>1</td></tr><tr><th>overhead</th><td>0.1</td></tr><tr><th>tuning_rate</th><td>0.7</td></tr></table></td></tr><tr><th>debug</th><td>False</td></tr><tr><th>timer</th><td><table border="1"><tr><th>run_info</th><td><table border="1"><tr><th>reg_l2</th><td>4.155423641204834, 4.209680795669556, 4.205383062362671, 4.1152544021606445, 4.227962970733643</td></tr><tr><th>lgb</th><td>128.52253794670105</td></tr><tr><th>cb</th><td>119.65259599685669, 118.88413906097412</td></tr></table></td></tr><tr><th>run_scores</th><td><table border="1"><tr><th>reg_l2</th><td>0.7, 0.7, 0.7, 0.7, 0.7</td></tr><tr><th>lgb</th><td>1</td></tr><tr><th>cb</th><td>2, 2</td></tr></table></td></tr><tr><th>tuning_rate</th><td>0.7</td></tr><tr><th>child_out_of_time</th><td>True</td></tr><tr><th>start_time</th><td>1737059006.5724528</td></tr></table></td></tr><tr><th>memory_limit</th><td>16</td></tr><tr><th>cpu_limit</th><td>4</td></tr><tr><th>gpu_ids</th><td>None</td></tr><tr><th>task</th><td><table border="1"><tr><th>losses</th><td><table border="1"><tr><th>lgb</th><td><table border="1"><tr><th>metric</th><td>auc</td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_name</th><td>binary</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>feval</th><td>None</td></tr></table></td></tr><tr><th>sklearn</th><td><table border="1"><tr><th>flg_regressor</th><td>False</td></tr><tr><th>loss</th><td>logloss</td></tr><tr><th>loss_params</th><td>None</td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_func</th><td><table border="1"><tr><th>metric_func</th><td></td></tr><tr><th>m</th><td>1.0</td></tr><tr><th>bw_func</th><td></td></tr></table></td></tr><tr><th>metric_name</th><td>auc</td></tr></table></td></tr><tr><th>torch</th><td><table border="1"><tr><th>loss_params</th><td></td></tr><tr><th>loss</th><td><table border="1"><tr><th>training</th><td>True</td></tr><tr><th>flatten</th><td>False</td></tr><tr><th>log</th><td>False</td></tr></table></td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_func</th><td><table border="1"><tr><th>metric_func</th><td></td></tr><tr><th>m</th><td>1.0</td></tr><tr><th>bw_func</th><td></td></tr></table></td></tr><tr><th>metric_name</th><td>auc</td></tr></table></td></tr><tr><th>cb</th><td><table border="1"><tr><th>loss_params</th><td></td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_name</th><td>Logloss</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric</th><td>None</td></tr><tr><th>metric_name</th><td>AUC</td></tr><tr><th>metric_params</th><td></td></tr></table></td></tr><tr><th>xgb</th><td><table border="1"><tr><th>fobj_name</th><td>binary:logistic</td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>feval</th><td>None</td></tr></table></td></tr></table></td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_func</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>greater_is_better</th><td>True</td></tr></table></td></tr><tr><th>is_time_series</th><td>False</td></tr><tr><th>reader</th><td><table border="1"><tr><th>task</th><td><table border="1"><tr><th>losses</th><td><table border="1"><tr><th>lgb</th><td><table border="1"><tr><th>metric</th><td>auc</td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_name</th><td>binary</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>feval</th><td>None</td></tr></table></td></tr><tr><th>sklearn</th><td><table border="1"><tr><th>flg_regressor</th><td>False</td></tr><tr><th>loss</th><td>logloss</td></tr><tr><th>loss_params</th><td>None</td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_func</th><td><table border="1"><tr><th>metric_func</th><td></td></tr><tr><th>m</th><td>1.0</td></tr><tr><th>bw_func</th><td></td></tr></table></td></tr><tr><th>metric_name</th><td>auc</td></tr></table></td></tr><tr><th>torch</th><td><table border="1"><tr><th>loss_params</th><td></td></tr><tr><th>loss</th><td><table border="1"><tr><th>training</th><td>True</td></tr><tr><th>flatten</th><td>False</td></tr><tr><th>log</th><td>False</td></tr></table></td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_func</th><td><table border="1"><tr><th>metric_func</th><td></td></tr><tr><th>m</th><td>1.0</td></tr><tr><th>bw_func</th><td></td></tr></table></td></tr><tr><th>metric_name</th><td>auc</td></tr></table></td></tr><tr><th>cb</th><td><table border="1"><tr><th>loss_params</th><td></td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_name</th><td>Logloss</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric</th><td>None</td></tr><tr><th>metric_name</th><td>AUC</td></tr><tr><th>metric_params</th><td></td></tr></table></td></tr><tr><th>xgb</th><td><table border="1"><tr><th>fobj_name</th><td>binary:logistic</td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>feval</th><td>None</td></tr></table></td></tr></table></td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_func</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>greater_is_better</th><td>True</td></tr></table></td></tr><tr><th>samples</th><td>100000</td></tr><tr><th>max_nan_rate</th><td>0.999</td></tr><tr><th>max_constant_rate</th><td>0.999</td></tr><tr><th>cv</th><td>5</td></tr><tr><th>random_state</th><td>42</td></tr><tr><th>n_jobs</th><td>4</td></tr><tr><th>roles_params</th><td></td></tr><tr><th>target</th><td>IsAlert</td></tr><tr><th>advanced_roles</th><td>True</td></tr><tr><th>advanced_roles_params</th><td><table border="1"><tr><th>numeric_unique_rate</th><td>0.999</td></tr><tr><th>max_to_3rd_rate</th><td>1.1</td></tr><tr><th>binning_enc_rate</th><td>2</td></tr><tr><th>raw_decr_rate</th><td>1.1</td></tr><tr><th>max_score_rate</th><td>0.2</td></tr><tr><th>abs_score_val</th><td>0.04</td></tr><tr><th>drop_score_co</th><td>0.0</td></tr></table></td></tr><tr><th>params</th><td></td></tr><tr><th>class_mapping</th><td>None</td></tr></table></td></tr><tr><th>blender</th><td><table border="1"><tr><th>max_iters</th><td>5</td></tr><tr><th>max_inner_iters</th><td>7</td></tr><tr><th>max_nonzero_coef</th><td>0.05</td></tr><tr><th>wts</th><td>1.0</td></tr></table></td></tr><tr><th>skip_conn</th><td>True</td></tr><tr><th>return_all_predictions</th><td>False</td></tr><tr><th>targets_order</th><td>1</td></tr><tr><th>levels</th><td>[&lt;lightautoml.pipelines.ml.nested_ml_pipe.NestedTabularMLPipeline object at 0x7f6c74709cf0&gt;]</td></tr></table>
+    </ul>
+</li>
+                    
+                
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h2 class="caret caret-down" id="section2">Data overview</h2>
+    <ul class="nested active">
+        <li>
+            <h3 class="caret" id="section2_1">Roles table</h3>
+            <ul class="nested">
+                <p>Each reader has its own preprocessing configuration and type guessing, thus
+                    each reader recognises feature roles differently.
+                </p>
+                <p>Table below summarizes the guessed feature roles for all applied presets.</p>
+                <p>"N" - numerical, "C" - categorical, "D" - datetime, "T" - textual, "-" - dropped.</p>
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>conf_0_sel_type_0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>P1</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>P2</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>E11</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>V1</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>V3</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>V5</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>V6</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>V10</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>V11</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>P3</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>P4</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>P5</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>P6</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>P7</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E1</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>E10</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>V2</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>V4</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>V8</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>IsAlert</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+
+        <li>
+            <h3 class="caret" id="section2_2">Precise description</h3>
+            <ul class="nested">
+                <p>Below is the precise description of training data for each preset.</p>
+                
+                    <li>
+    <h4 class="caret" id="section2">conf_0_sel_type_0</h4>
+    <ul class="nested">
+        <li>
+            <h5 class="caret" id="section2_1">Train data summary</h5>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number of records</td>
+      <td>483463</td>
+    </tr>
+    <tr>
+      <td>Total number of features</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>Used features</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>Dropped features</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+        <li>
+            <h5 class="caret" id="section2_2">Train data details</h5>
+            <ul class="nested">
+                <li>
+                    <h5 class="caret" id="section2_2_1">Numerical features</h5>
+                    <ul class="nested">
+                        
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Feature name</th>
+      <th>NaN ratio</th>
+      <th>min</th>
+      <th>quantile_25</th>
+      <th>average</th>
+      <th>median</th>
+      <th>quantile_75</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P1</td>
+      <td>0.0000</td>
+      <td>-22.48</td>
+      <td>31.76</td>
+      <td>35.45</td>
+      <td>34.15</td>
+      <td>37.31</td>
+      <td>101.35</td>
+    </tr>
+    <tr>
+      <td>P2</td>
+      <td>0.0000</td>
+      <td>-45.63</td>
+      <td>9.91</td>
+      <td>12.00</td>
+      <td>11.40</td>
+      <td>13.65</td>
+      <td>71.17</td>
+    </tr>
+    <tr>
+      <td>E3</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.29</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>E7</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.76</td>
+      <td>1.00</td>
+      <td>2.00</td>
+      <td>25.00</td>
+    </tr>
+    <tr>
+      <td>E9</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.88</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>E11</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.32</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>52.40</td>
+    </tr>
+    <tr>
+      <td>V1</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>41.75</td>
+      <td>76.95</td>
+      <td>100.40</td>
+      <td>108.50</td>
+      <td>129.70</td>
+    </tr>
+    <tr>
+      <td>V3</td>
+      <td>0.0000</td>
+      <td>240.00</td>
+      <td>255.00</td>
+      <td>573.59</td>
+      <td>511.00</td>
+      <td>767.00</td>
+      <td>1023.00</td>
+    </tr>
+    <tr>
+      <td>V5</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>V6</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>1253.00</td>
+      <td>1715.44</td>
+      <td>1994.00</td>
+      <td>2146.00</td>
+      <td>4817.00</td>
+    </tr>
+    <tr>
+      <td>V10</td>
+      <td>0.0000</td>
+      <td>1.00</td>
+      <td>3.00</td>
+      <td>3.31</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>7.00</td>
+    </tr>
+    <tr>
+      <td>V11</td>
+      <td>0.0000</td>
+      <td>1.68</td>
+      <td>7.94</td>
+      <td>11.67</td>
+      <td>10.77</td>
+      <td>15.27</td>
+      <td>262.53</td>
+    </tr>
+  </tbody>
+</table>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h5 class="caret" id="section2_2_2">Categorical features</h5>
+                    <ul class="nested">
+                        
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Feature name</th>
+      <th>NaN ratio</th>
+      <th>Number of unique values</th>
+      <th>Most frequent value</th>
+      <th>Occurrence of most frequent</th>
+      <th>Least frequent value</th>
+      <th>Occurrence of least frequent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P3</td>
+      <td>0.0000</td>
+      <td>409</td>
+      <td>800.000000</td>
+      <td>2.8%</td>
+      <td>2104.000000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>P4</td>
+      <td>0.0000</td>
+      <td>409</td>
+      <td>75.000000</td>
+      <td>2.8%</td>
+      <td>28.517100</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>P5</td>
+      <td>0.0000</td>
+      <td>1217</td>
+      <td>0.096002</td>
+      <td>2.6%</td>
+      <td>1.626840</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>P6</td>
+      <td>0.0000</td>
+      <td>419</td>
+      <td>860.000000</td>
+      <td>1.2%</td>
+      <td>276.000000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>P7</td>
+      <td>0.0000</td>
+      <td>419</td>
+      <td>69.767400</td>
+      <td>1.2%</td>
+      <td>217.391000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>E1</td>
+      <td>0.0000</td>
+      <td>13595</td>
+      <td>0.000000</td>
+      <td>51.7%</td>
+      <td>1.755000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>E2</td>
+      <td>0.0000</td>
+      <td>34339</td>
+      <td>0.000000</td>
+      <td>51.7%</td>
+      <td>318.500000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>E4</td>
+      <td>0.0000</td>
+      <td>252</td>
+      <td>0.000000</td>
+      <td>27.4%</td>
+      <td>232.000000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>E5</td>
+      <td>0.0000</td>
+      <td>254</td>
+      <td>0.015875</td>
+      <td>6.5%</td>
+      <td>0.008252</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>E6</td>
+      <td>0.0000</td>
+      <td>247</td>
+      <td>366.000000</td>
+      <td>13.4%</td>
+      <td>502.000000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>E8</td>
+      <td>0.0000</td>
+      <td>10</td>
+      <td>0.000000</td>
+      <td>33.2%</td>
+      <td>8.000000</td>
+      <td>0.8%</td>
+    </tr>
+    <tr>
+      <td>E10</td>
+      <td>0.0000</td>
+      <td>123</td>
+      <td>72.000000</td>
+      <td>8.0%</td>
+      <td>110.000000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>V2</td>
+      <td>0.0000</td>
+      <td>90</td>
+      <td>0.000000</td>
+      <td>20.1%</td>
+      <td>3.990000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>V4</td>
+      <td>0.0000</td>
+      <td>324</td>
+      <td>3.018750</td>
+      <td>19.3%</td>
+      <td>483.000000</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>V8</td>
+      <td>0.0000</td>
+      <td>321</td>
+      <td>0.000000</td>
+      <td>33.4%</td>
+      <td>66.000000</td>
+      <td>0.0%</td>
+    </tr>
+  </tbody>
+</table>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h5 class="caret" id="section2_2_3">Datetime features</h5>
+                    <ul class="nested">
+                        
+                        <p>No datetime features.</p>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h5 class="caret" id="section2_2_4">Textual features</h5>
+                    <ul class="nested">
+                        
+                        <p>No textual features.</p>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h5 class="caret" id="section2_2_5">Dropped features</h5>
+                    <ul class="nested">
+                        
+                        <p>No dropped features.</p>
+                        
+
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+                
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h2 class="caret" id="section1">Feature importance</h2>
+    <ul class="nested">
+        
+            <p>No feature importance provided for original features or used presets do not provide feature importance. </p>
+            <p>Try increasing the timeout to use more presets.</p>
+        
+    </ul>
+</li>
+        
+            <li>
+    <h2 class="caret caret-down" id="section2">Detailed model results</h2>
+    <ul class="nested active">
+        
+            <li>
+    <h3 class="caret" id="section3">Results on validation sample</h3>
+    <ul class="nested">
+        <li>
+            <h4 class="caret" id="section3_2">ROC curve</h4>
+            <ul class="nested">
+                <p><img src=valid_roc_curve.png alt="AUC valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_3">ROC-PR curve</h4>
+            <ul class="nested">
+                <p><img src=valid_pr_curve.png alt="PR valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_4">Pie F1 metric</h4>
+            <ul class="nested">
+                <p><img src=valid_pie_f1_metric.png alt="Pie F1 metric"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_5">Distribution of object predictions by bins</h4>
+            <ul class="nested">
+                <p><img src=valid_preds_distribution_by_bins.png alt="preds_distribution_by_bins"></p>
+                <p><img src=valid_distribution_of_logits.png alt="distribution_of_logits"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_6">Distribution of Logits by bins</h4>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Bin number</th>
+      <th>Amount of objects</th>
+      <th>Mean target</th>
+      <th>Min probability</th>
+      <th>Average probability</th>
+      <th>Max probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>24174</td>
+      <td>0.999173</td>
+      <td>9.988515e-01</td>
+      <td>0.999678</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>24173</td>
+      <td>0.996318</td>
+      <td>9.851779e-01</td>
+      <td>0.995086</td>
+      <td>0.998851</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>24173</td>
+      <td>0.319696</td>
+      <td>5.802417e-04</td>
+      <td>0.372737</td>
+      <td>0.985171</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>2.428682e-09</td>
+      <td>0.000082</td>
+      <td>0.000580</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h3 class="caret" id="section3">Results on test sample</h3>
+    <ul class="nested">
+        <li>
+            <h4 class="caret" id="section3_2">ROC curve</h4>
+            <ul class="nested">
+                <p><img src=test_roc_curve_1.png alt="AUC valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_3">ROC-PR curve</h4>
+            <ul class="nested">
+                <p><img src=test_pr_curve_1.png alt="PR valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_4">Pie F1 metric</h4>
+            <ul class="nested">
+                <p><img src=test_pie_f1_metric_1.png alt="Pie F1 metric"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_5">Distribution of object predictions by bins</h4>
+            <ul class="nested">
+                <p><img src=test_preds_distribution_by_bins_1.png alt="preds_distribution_by_bins"></p>
+                <p><img src=test_distribution_of_logits_1.png alt="distribution_of_logits"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_6">Distribution of Logits by bins</h4>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Bin number</th>
+      <th>Amount of objects</th>
+      <th>Mean target</th>
+      <th>Min probability</th>
+      <th>Average probability</th>
+      <th>Max probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>24174</td>
+      <td>1.000000</td>
+      <td>9.999762e-01</td>
+      <td>9.999896e-01</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>24173</td>
+      <td>1.000000</td>
+      <td>9.999025e-01</td>
+      <td>9.999458e-01</td>
+      <td>0.999976</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>24173</td>
+      <td>1.000000</td>
+      <td>9.997240e-01</td>
+      <td>9.998240e-01</td>
+      <td>0.999902</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>24173</td>
+      <td>0.999917</td>
+      <td>9.994247e-01</td>
+      <td>9.995848e-01</td>
+      <td>0.999724</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>24173</td>
+      <td>0.999752</td>
+      <td>9.989916e-01</td>
+      <td>9.992201e-01</td>
+      <td>0.999425</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>24173</td>
+      <td>0.999835</td>
+      <td>9.983802e-01</td>
+      <td>9.987009e-01</td>
+      <td>0.998992</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>24174</td>
+      <td>0.999710</td>
+      <td>9.975033e-01</td>
+      <td>9.979703e-01</td>
+      <td>0.998380</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>24173</td>
+      <td>0.999835</td>
+      <td>9.961814e-01</td>
+      <td>9.968954e-01</td>
+      <td>0.997503</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>24173</td>
+      <td>0.999669</td>
+      <td>9.939986e-01</td>
+      <td>9.951975e-01</td>
+      <td>0.996181</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>24173</td>
+      <td>0.999504</td>
+      <td>9.895810e-01</td>
+      <td>9.920813e-01</td>
+      <td>0.993999</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>24173</td>
+      <td>0.997932</td>
+      <td>9.745082e-01</td>
+      <td>9.841173e-01</td>
+      <td>0.989581</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>24173</td>
+      <td>0.579200</td>
+      <td>7.741250e-02</td>
+      <td>6.475669e-01</td>
+      <td>0.974503</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>24173</td>
+      <td>0.000538</td>
+      <td>8.597083e-03</td>
+      <td>2.734457e-02</td>
+      <td>0.077390</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>24174</td>
+      <td>0.000083</td>
+      <td>1.852785e-03</td>
+      <td>4.334858e-03</td>
+      <td>0.008597</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>4.287477e-04</td>
+      <td>9.652527e-04</td>
+      <td>0.001853</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>1.117437e-04</td>
+      <td>2.344448e-04</td>
+      <td>0.000429</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>2.962707e-05</td>
+      <td>6.191429e-05</td>
+      <td>0.000112</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>7.039342e-06</td>
+      <td>1.590073e-05</td>
+      <td>0.000030</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>1.286996e-06</td>
+      <td>3.459500e-06</td>
+      <td>0.000007</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>24173</td>
+      <td>0.000000</td>
+      <td>2.500150e-09</td>
+      <td>4.995371e-07</td>
+      <td>0.000001</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h3 class="caret" id="section3">Results on test sample 2</h3>
+    <ul class="nested">
+        <li>
+            <h4 class="caret" id="section3_2">ROC curve</h4>
+            <ul class="nested">
+                <p><img src=test_roc_curve_2.png alt="AUC valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_3">ROC-PR curve</h4>
+            <ul class="nested">
+                <p><img src=test_pr_curve_2.png alt="PR valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_4">Pie F1 metric</h4>
+            <ul class="nested">
+                <p><img src=test_pie_f1_metric_2.png alt="Pie F1 metric"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_5">Distribution of object predictions by bins</h4>
+            <ul class="nested">
+                <p><img src=test_preds_distribution_by_bins_2.png alt="preds_distribution_by_bins"></p>
+                <p><img src=test_distribution_of_logits_2.png alt="distribution_of_logits"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_6">Distribution of Logits by bins</h4>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Bin number</th>
+      <th>Amount of objects</th>
+      <th>Mean target</th>
+      <th>Min probability</th>
+      <th>Average probability</th>
+      <th>Max probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>6044</td>
+      <td>1.000000</td>
+      <td>9.999754e-01</td>
+      <td>9.999894e-01</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>6043</td>
+      <td>1.000000</td>
+      <td>9.998906e-01</td>
+      <td>9.999409e-01</td>
+      <td>0.999975</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>6043</td>
+      <td>0.999835</td>
+      <td>9.996965e-01</td>
+      <td>9.998050e-01</td>
+      <td>0.999891</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>6044</td>
+      <td>0.999338</td>
+      <td>9.993544e-01</td>
+      <td>9.995382e-01</td>
+      <td>0.999696</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>6043</td>
+      <td>0.998511</td>
+      <td>9.988543e-01</td>
+      <td>9.991162e-01</td>
+      <td>0.999354</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6043</td>
+      <td>0.998345</td>
+      <td>9.981214e-01</td>
+      <td>9.985108e-01</td>
+      <td>0.998854</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>6044</td>
+      <td>0.999173</td>
+      <td>9.970462e-01</td>
+      <td>9.976232e-01</td>
+      <td>0.998121</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>6043</td>
+      <td>0.998180</td>
+      <td>9.953619e-01</td>
+      <td>9.962772e-01</td>
+      <td>0.997046</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>6043</td>
+      <td>0.997187</td>
+      <td>9.923996e-01</td>
+      <td>9.940518e-01</td>
+      <td>0.995362</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>6043</td>
+      <td>0.995532</td>
+      <td>9.858633e-01</td>
+      <td>9.896359e-01</td>
+      <td>0.992398</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>6044</td>
+      <td>0.985936</td>
+      <td>9.601511e-01</td>
+      <td>9.768832e-01</td>
+      <td>0.985862</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>6043</td>
+      <td>0.598709</td>
+      <td>1.769605e-01</td>
+      <td>7.192050e-01</td>
+      <td>0.960109</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>6043</td>
+      <td>0.004633</td>
+      <td>1.116877e-02</td>
+      <td>4.977002e-02</td>
+      <td>0.176944</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>6044</td>
+      <td>0.000165</td>
+      <td>2.102348e-03</td>
+      <td>5.297760e-03</td>
+      <td>0.011164</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>6043</td>
+      <td>0.000000</td>
+      <td>4.648743e-04</td>
+      <td>1.073372e-03</td>
+      <td>0.002102</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>6043</td>
+      <td>0.000000</td>
+      <td>1.191011e-04</td>
+      <td>2.509436e-04</td>
+      <td>0.000465</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>6044</td>
+      <td>0.000331</td>
+      <td>3.138058e-05</td>
+      <td>6.587333e-05</td>
+      <td>0.000119</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>6043</td>
+      <td>0.000000</td>
+      <td>7.297864e-06</td>
+      <td>1.662913e-05</td>
+      <td>0.000031</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>6043</td>
+      <td>0.000000</td>
+      <td>1.338053e-06</td>
+      <td>3.581301e-06</td>
+      <td>0.000007</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>6043</td>
+      <td>0.000000</td>
+      <td>3.297377e-09</td>
+      <td>5.128259e-07</td>
+      <td>0.000001</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+    </ul>
+    <script type="text/javascript">
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+    </script>
+</body>
+
+</html>
